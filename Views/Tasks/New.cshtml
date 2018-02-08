@@ -1,0 +1,18 @@
+@{
+    Layout = "_Layout";
+    var today = System.DateTime.Today;
+    string todayString = $"{today.Year}-{today.Month.ToString("D2")}-{today.Day.ToString("D2")}";
+}
+
+<form action="/tasks" method="post">
+    <div>
+        <input type="text" name="name" placeholder="Task Name" required>
+    </div>
+    <div>
+        <textarea name="description" rows="6" cols="60" placeholder="Task Description" required></textarea>
+    </div>
+    <div>
+        <label>Do By: <input type="date" name="do-by" min="@todayString" value="@todayString"></label>
+    </div>
+    <button type="submit" name="button">Add Task</button>
+</form>

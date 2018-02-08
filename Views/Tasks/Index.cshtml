@@ -1,0 +1,15 @@
+@{
+    Layout = "_Layout";
+}
+
+@foreach (var task in Model)
+{
+    string dateString = $"{task.DueDate.Year}-{task.DueDate.Month.ToString("D2")}-{task.DueDate.Day.ToString("D2")}";
+
+    <div>
+        <h4>@task.Name</h4>
+        <p>@task.Description</p>
+        (Due By @dateString)
+    </div>
+}
+<a href="tasks/new"><button type="button" name="button">Add Task</button></a>
